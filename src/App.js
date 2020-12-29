@@ -1,5 +1,5 @@
 import React from 'react';
+import { Restaurant } from './components/restaurant';
 import './firebase';
-import { SelectMenu } from './components/selectMenu';
 
-export const App = () => <SelectMenu/>
+export const App = () => <Restaurant/>
