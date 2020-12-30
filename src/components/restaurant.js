@@ -9,14 +9,8 @@ export const Restaurant = () => {
   const [orderList, setOrderList] = useState([]);
 
   const addOrder = order =>  {
-    // console.log(order);
     setOrderList([...orderList, {items: order, time: new Date()}]);
   }
-
-  let registeredOrdersView = orderList.map((order, index) => {
-    let msg =  `nrodeOrden = ${index}, nrodeItems = ${order.items.length}, hora = ${order.time}`;
-    return <p key = {'m'+index}>{msg}</p>
-  })
 
   return (
     <div>
@@ -25,11 +19,10 @@ export const Restaurant = () => {
           <button className ='button' onClick={()=> setView('kitchen')}>Kitchen</button>
       </div>
       <SelectMenu view={view} addOrder={addOrder} />
-      {/* <Kitchen orderToKitchen={orderList}/> */}
-
-      <div className='orderList'>
+     
+      <div className='kitchen'>
         {orderList.map((order, index) => 
-      <Kitchen key = {'k'+index} data = {order} orderToKitchen={orderList}/>)}
+      <Kitchen key = {'k'+index} data = {order} index = {index} orderToKitchen={orderList}/>)}
       </div>
 
     </div>

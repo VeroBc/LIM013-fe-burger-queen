@@ -7,9 +7,7 @@ export const Item = (props) => {
     <ul 
       style={styles.container}
       className='unorderList'
-      onClick={ ()=>
-        (props.seleccionar && props.seleccionar(props.data))
-      }
+      onClick={ ()=>(props.seleccionar && props.seleccionar(props.data))}
       >
       <div  className='description' style={styles.description}>{props.data.description}</div>
       <div  className='price' style={styles.price}>S/. {props.data.price}</div>

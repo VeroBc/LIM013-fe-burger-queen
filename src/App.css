@@ -71,11 +71,11 @@ input:hover {
   border-radius: 15px;
   /* background-color: rgb(185, 115, 49); */
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
   padding:16px;
   border: #eaebec;
-  height: 614px;
+  max-height: 614px;
   padding: 1em;
   overflow-y: scroll;
   
@@ -102,7 +102,6 @@ input:hover {
   margin: 15px;
   border-radius: 15px;
   background-color: white;
-
   height: 614px;
   padding: 1em;
   overflow-y: scroll;
@@ -196,4 +195,50 @@ input:hover {
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 15px;
+}
+
+.orderKitchen {
+  display: grid;
+  padding: 16px;
+  font-size: 15px;
+  margin: 10px;
+  width: 200px;
+  height: 150px;
+  background-color: rgb(228, 227, 227);
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  overflow-y: scroll;
+}
+
+.kitchen {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding:5px;
+  margin: 15px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 1em;
+  overflow-y: scroll;
+  color: #086A98;
+  font-weight: 600;
+}
+
+/* .itemKitchen {
+  grid-area: itemkitchen;
+} */
+
+.orderButton {
+  grid-area:orderbutton;
+  background-color:#086A98;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+  width: 150px;
+  border-radius: 10px;
+  border: 0;
+  margin: 10px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }

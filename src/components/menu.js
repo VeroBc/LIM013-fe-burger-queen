@@ -1,7 +1,7 @@
 import { db } from '../firebase' ;
 import React, { useState, useEffect } from 'react';
-import { Item } from './item' ;
-import { Order } from './order' ;
+import { Item } from './item';
+import { Order } from './order';
 import '../App.css';
 
 export const Menu = (props) => {
@@ -20,6 +20,10 @@ export const Menu = (props) => {
     let tempArray = [...order];        //Equivalente: let tempArrayOfItems = Array.from(order);
     tempArray.splice(index,1);
     setOrder(tempArray);
+  }
+
+  const deleteArray = () => {
+      setOrder([]);
   }
 
   useEffect(() => {
@@ -48,11 +52,10 @@ export const Menu = (props) => {
 
         <div className='totalPrice'>
           <div className='total'>Total</div>
-          <div className='amount'>S/. {(order.reduce((ant, item, index) => ant + item.price, 0)).toFixed(2)}</div>
-          <button className ='button' onClick={() => props.addOrder(order)}>Tomar pedido</button>
+          <div className='amount'>S/. {(order.reduce((ant, item) => ant + item.price, 0)).toFixed(2)}</div>
+          <button className ='button' onClick={() => {props.addOrder(order); deleteArray();} }>Tomar pedido</button>
         </div>
       </div>
-
     </div>
   )
 }
