@@ -1,22 +1,47 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu } from './menu';
+import { Delivered } from './delivered';
+import { subscribeDelivery } from '../services/backend'; 
 import '../App.css';
-// import { Button } from './button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faHamburger } from '@fortawesome/free-solid-svg-icons'
+import { faUtensils } from '@fortawesome/free-solid-svg-icons'
+import { faGlassWhiskey } from '@fortawesome/free-solid-svg-icons'
+import { faBell } from '@fortawesome/free-solid-svg-icons'
 
 export const SelectMenu = (props) => {
 
   const [currentMenu, setCurrentMenu] = useState('almuerzo y cena');
+  const [menuView, setMenuView] = useState('orderView');
+  const [deliveryList, setDeliveryList] = useState([]);
 
+  const selectMenuView = () => 
+  setMenuView( menuView === 'deliveredView' ? 'orderView' : 'deliveredView');
+
+  useEffect(() => subscribeDelivery(setDeliveryList), []) 
+ 
   return (
-    <div className ='Order-view'>
-      <section>
-        <div className ='Buttons'>
-          <button className ='button' onClick={()=> setCurrentMenu('desayuno')}>Desayuno</button>
-          <button className ='button' onClick={()=> setCurrentMenu('almuerzo y cena')}>Almuerzo y Cena</button>
+    <div>
+      <section >
+        <div className='subheader'>
+          <h1 className='filters'>
+            <FontAwesomeIcon className ='icon' onClick={()=> setCurrentMenu('desayuno')} icon={faCoffee} />
+            <FontAwesomeIcon className ='icon' onClick={()=> setCurrentMenu('almuerzo y cena')} icon={faUtensils} />
+            <FontAwesomeIcon className ='icon' onClick={()=> setCurrentMenu('hamburguesas')} icon={faHamburger} />
+            <FontAwesomeIcon className ='icon' onClick={()=> setCurrentMenu('bebidas')} icon={faGlassWhiskey} />
+          </h1>
+          <h1 className='notifications' onClick={selectMenuView}>{ menuView === 'deliveredView' ? <div><FontAwesomeIcon className ='icon' icon={faBell}/></div> : <div><FontAwesomeIcon className ='icon' icon={faBell}/> <div className ='quantity'>{deliveryList.length}</div> </div>}</h1>
         </div>
         <div>
+        { menuView === 'orderView' &&
           <Menu menuType={currentMenu} addOrder ={props.addOrder}/>
+        }
+
+        { menuView === 'deliveredView' &&
+          <Delivered orderToDeliver={deliveryList}/>
+        }
+          
         </div>
       </section>
     </div>

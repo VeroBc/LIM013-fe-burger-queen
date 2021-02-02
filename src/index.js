@@ -4,10 +4,13 @@ import './firebase';
 // import './index.css';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserProvider } from './components/userContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

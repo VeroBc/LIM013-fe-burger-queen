@@ -1,30 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SelectMenu } from './selectMenu';
 import { Kitchen } from './kitchen';
+import { subscribeOrder } from '../services/backend';
+// import {UserContext} from './userContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { signOut } from '../services/auth';
+import logo from '../img/logobq.png'
+// import imgDefault from '../img/userDefault.png';
 import '../App.css';
 
 export const Restaurant = () => {
 
-  const [view, setView] = useState('menu');
+  const [actualView, setActualView] = useState('menuView');
   const [orderList, setOrderList] = useState([]);
 
-  const addOrder = order =>  {
-    setOrderList([...orderList, {items: order, time: new Date()}]);
+  // const currentUser = useContext(UserContext);
+
+  const addOrder = () =>  {
+    setOrderList(orderList);
   }
+
+  const selectActualView = () => 
+    setActualView( actualView === 'menuView' ? 'kitchenView' : 'menuView');
+
+  useEffect(() => subscribeOrder(setOrderList), []) 
 
   return (
     <div>
-      <div className ='Buttons'>
-          <button className ='button' onClick={()=> setView('menu')}>Menu</button>
-          <button className ='button' onClick={()=> setView('kitchen')}>Kitchen</button>
-      </div>
-      <SelectMenu view={view} addOrder={addOrder} />
-     
-      <div className='kitchen'>
-        {orderList.map((order, index) => 
-      <Kitchen key = {'k'+index} data = {order} index = {index} orderToKitchen={orderList}/>)}
-      </div>
+      <div className='header'>
+        <img src={logo} className='imglogo' alt="Logo"/>
+        {/* <div >{currentUser && <p className='currentuser'>{currentUser.displayName}</p>}</div> */}
+       
+        <FontAwesomeIcon className='signOutIcon' onClick={()=> signOut()} icon={faSignOutAlt} />
+        <div className='changeview' onClick={selectActualView}> { actualView === 'menuView' ? 'Ir a Cocina' : 'Ir a Menu'}</div>
+    </div>
+
+      { actualView === 'menuView' &&
+        <SelectMenu addOrder={addOrder} />
+      }
+
+      { actualView === 'kitchenView' &&
+        <Kitchen orderToKitchen={orderList} />
+      }
 
     </div>
   )
 }
+
+
