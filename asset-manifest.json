@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/BurgerQueen/static/css/main.43451859.chunk.css",
+    "main.js": "/BurgerQueen/static/js/main.9336b8eb.chunk.js",
+    "main.js.map": "/BurgerQueen/static/js/main.9336b8eb.chunk.js.map",
+    "runtime-main.js": "/BurgerQueen/static/js/runtime-main.e6d5a4e7.js",
+    "runtime-main.js.map": "/BurgerQueen/static/js/runtime-main.e6d5a4e7.js.map",
+    "static/js/2.b49c5386.chunk.js": "/BurgerQueen/static/js/2.b49c5386.chunk.js",
+    "static/js/2.b49c5386.chunk.js.map": "/BurgerQueen/static/js/2.b49c5386.chunk.js.map",
+    "static/js/3.9e1295dd.chunk.js": "/BurgerQueen/static/js/3.9e1295dd.chunk.js",
+    "static/js/3.9e1295dd.chunk.js.map": "/BurgerQueen/static/js/3.9e1295dd.chunk.js.map",
+    "index.html": "/BurgerQueen/index.html",
+    "static/css/main.43451859.chunk.css.map": "/BurgerQueen/static/css/main.43451859.chunk.css.map",
+    "static/js/2.b49c5386.chunk.js.LICENSE.txt": "/BurgerQueen/static/js/2.b49c5386.chunk.js.LICENSE.txt",
+    "static/media/fruits.e4c7faa3.jpg": "/BurgerQueen/static/media/fruits.e4c7faa3.jpg",
+    "static/media/hamb.23beb518.jpg": "/BurgerQueen/static/media/hamb.23beb518.jpg",
+    "static/media/logo-google.55afd28a.svg": "/BurgerQueen/static/media/logo-google.55afd28a.svg",
+    "static/media/logobq.fe7cc1ef.png": "/BurgerQueen/static/media/logobq.fe7cc1ef.png",
+    "static/media/logobqcolor.ee4cb058.png": "/BurgerQueen/static/media/logobqcolor.ee4cb058.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6d5a4e7.js",
+    "static/js/2.b49c5386.chunk.js",
+    "static/css/main.43451859.chunk.css",
+    "static/js/main.9336b8eb.chunk.js"
+  ]
+}
